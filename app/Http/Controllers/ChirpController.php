@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Response;
 
 use App\Models\Chirp;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ChirpController extends Controller
@@ -10,9 +12,13 @@ class ChirpController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+
+    // public function index(): Response{
+    //     // print hello world
+    //     return response('Hello World');
+    // }
+    public function index(): View{
+        return view("chirps.index");
     }
 
     /**
