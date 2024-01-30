@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})
+->middleware(['auth', 'verified'])
+->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
 // chirps.index, chirps.store
 Route::resource('chirps', ChirpController::class)
-->only(['index', 'store']) // enable two routes - index (listing) and store (saving)
+->only(['index', 'store', 'edit', 'update']) // enable two routes - index (listing) and store (saving)
 ->middleware(['auth', 'verified']); // place the above routes behind two middleware(s) - auth/verified
 
 require __DIR__.'/auth.php';
