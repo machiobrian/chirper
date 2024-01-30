@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
 // chirps.index, chirps.store
 Route::resource('chirps', ChirpController::class)
-->only(['index', 'store', 'edit', 'update']) // enable two routes - index (listing) and store (saving)
+->only(['index', 'store', 'edit', 'update', 'destroy']) // enable two routes - index (listing) and store (saving)
 ->middleware(['auth', 'verified']); // place the above routes behind two middleware(s) - auth/verified
 
 require __DIR__.'/auth.php';
